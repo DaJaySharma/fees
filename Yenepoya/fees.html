@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fees Payment - Yenepoya University</title>
+    <link rel="stylesheet" href="fees.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="https://lms.yenepoya.edu.in/pluginfile.php/1/theme_academi/logo/1743005801/yabepoya.png" alt="Yenepoya University Logo" class="logo">
+            <h1>Fees Payment</h1>
+        </header>
+        
+        <section class="payment-section">
+            <h2>Pay Your Fees</h2>
+            <p>Course Fees: <strong>₹30,000</strong></p>
+            <form onsubmit="openScanner(event)">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="course">Select Course:</label>
+                <select id="course" name="course">
+                    <option value="btech">B.Tech</option>
+                    <option value="mba">BCA</option>
+                    <option value="bsc">B.Sc</option>
+                    <option value="msc">M.Sc</option>
+                </select>
+
+                <label for="payment-method">Payment Method:</label>
+                <select id="payment-method" name="payment-method">
+                    <option value="upi">UPI</option>
+                    <option value="credit-card">Credit Card</option>
+                    <option value="debit-card">Debit Card</option>
+                    <option value="net-banking">Net Banking</option>
+                </select>
+
+                <button type="submit">Proceed to Pay ₹30,000</button>
+            </form>
+        </section>
+
+        <!-- Hidden QR Code Popup -->
+        <div id="qr-popup" class="popup">
+            <div class="popup-content">
+                <h3>Scan to Pay</h3>
+                <img src="qr.jpg" alt="UPI QR Code">
+                <button onclick="closePopup()">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openScanner(event) {
+            event.preventDefault();
+            document.getElementById('qr-popup').style.display = 'block';
+        }
+
+        function closePopup() {
+            document.getElementById('qr-popup').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
